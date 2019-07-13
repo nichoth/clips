@@ -22,7 +22,8 @@
     "postversion": "git push --no-verify && git push --tags --no-verify",
     "lint": "eslint . --config .eslintrc",
     "test": "tape test/{**/*,*}.js",
-    "test-browser": "browserify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html"
+    "test-browser": "browserify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html",
+    "test-cypress": "./node_modules/.bin/cypress open"
   },
   "dependencies": {
     "@babel/preset-env": "^7.2.3",
