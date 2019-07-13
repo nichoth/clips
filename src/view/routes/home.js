@@ -6,6 +6,8 @@ function Home (match) {
         return <div>
             home route... hello {props.hello}
 
+            <input type="file" />
+
             <form onSubmit={props.emit(evs.world)}>
                 <input type="text" name="example" />
                 <button>Click</button>

@@ -16,10 +16,6 @@ function App (props) {
         null
 
     return <div>
-        view/index
-
-        <hr />
-
         <div className="app-content">
             <RouteView {...routeState} emit={emit} />
         </div>
