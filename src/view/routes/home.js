@@ -1,15 +1,15 @@
 var { h } = require('preact')
-var evs = require('../../EVENTS').hello
+var evs = require('../../EVENTS')
 
 function Home (match) {
     return function HomeView (props) {
         return <div>
             home route... hello {props.hello}
 
-            <input type="file" />
 
-            <form onSubmit={props.emit(evs.world)}>
+            <form onSubmit={props.emit(evs.hello.world)}>
                 <input type="text" name="example" />
+                <input type="file" name="file" onChange={props.emit(evs.chooseFile.choose)} />
                 <button>Click</button>
             </form>
 
