@@ -6,8 +6,6 @@ function Effects ({ state, view }) {
         state.route.set(parsedUrl)
     })
 
-    console.log('evs', evs)
-
     var effects = {
         foo: function (ev) {
             ev.preventDefault()
@@ -18,11 +16,9 @@ function Effects ({ state, view }) {
 
         chooseFile: function (ev) {
             // ev.preventDefault()
-            console.log('file', ev)
+            console.log('file', ev.target.files)
         }
     }
-
-    console.log('evs', evs)
 
     // listen for DOM events
     view.on(evs.hello.world, effects.foo)
