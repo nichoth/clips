@@ -7,7 +7,7 @@ var View = require('./view')
 var evs = require('./EVENTS')
 
 var state = struct({
-    foo: observ('bar'),
+    foo: struct({ foo: observ('bar') }),
     route: struct({}),
     homeRoute: struct({
         hello: observ('world')
