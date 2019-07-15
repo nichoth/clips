@@ -4,9 +4,9 @@ var evs = require('../../EVENTS')
 function Foo (match) {
     return function foo (props) {
         return <div>
-            home route... foo {props.foo}
+            foo route... foo {props.foo}
 
-            <form onSubmit={props.emit(evs.hello.world)}>
+            <form onSubmit={props.emit(evs.foo)}>
                 <input type="file" name="file"
                     onChange={props.emit(evs.chooseFile.choose)} />
             </form>
