@@ -8,8 +8,9 @@ function Home (match) {
 
 
             <form onSubmit={props.emit(evs.hello.world)}>
+                <input type="file" name="file"
+                    onChange={props.emit(evs.chooseFile.choose)} />
                 <input type="text" name="example" />
-                <input type="file" name="file" onChange={props.emit(evs.chooseFile.choose)} />
                 <button>Click</button>
             </form>
 
