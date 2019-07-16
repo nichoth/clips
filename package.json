@@ -33,6 +33,7 @@
     "@nichoth/observ": "^0.9.6",
     "@nichoth/preact-connect": "^1.0.0",
     "bcrypt": "^3.0.6",
+    "drag-drop": "^4.2.0",
     "levelgraph": "^2.1.1",
     "preact": "^8.2.9",
     "preact-compat": "^3.18.0",
