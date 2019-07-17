@@ -23,7 +23,7 @@
     "lint": "eslint . --config .eslintrc",
     "test": "tape test/{**/*,*}.js",
     "test-browser": "browserify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html",
-    "test-cypress": "./node_modules/.bin/cypress open"
+    "test-cypress": "npm start && ./node_modules/.bin/cypress run"
   },
   "dependencies": {
     "@babel/preset-env": "^7.2.3",
