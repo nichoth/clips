@@ -23,7 +23,8 @@
     "lint": "eslint . --config .eslintrc",
     "test": "tape test/{**/*,*}.js",
     "test-browser": "browserify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html",
-    "test-cypress": "npm start && ./node_modules/.bin/cypress run"
+    "test-cypress": "start-server-and-test start http://localhost:9966 cy:run",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@babel/preset-env": "^7.2.3",
@@ -58,6 +59,7 @@
     "husky": "^0.14.3",
     "inline-htmlify": "^2.0.1",
     "node-sass": "^4.11.0",
+    "start-server-and-test": "^1.9.1",
     "tape": "^4.9.0",
     "tape-run": "^4.0.0",
     "uglify-js": "^3.3.25",
