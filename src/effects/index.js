@@ -17,6 +17,7 @@ function Effects ({ state, view }) {
         chooseFile: function (ev) {
             // ev.preventDefault()
             console.log('file', ev.target.files)
+            state.homeRoute.files.set(ev.target.files)
         }
     }
 

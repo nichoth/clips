@@ -9,9 +9,12 @@ function Home (match) {
             <form onSubmit={props.emit(evs.hello.world)}>
                 <input type="file" name="file"
                     onChange={props.emit(evs.chooseFile.choose)} />
-                <li>{props.files.chosenFile ? props.files.chosenFile[0] : 'none'}</li>
-
-                <input type="text" name="example" />
+                {props.files[0] ?
+                    <li>{props.files[0].name}</li> :
+                    'None'
+                }
+                        
+                    <input type="text" name="example" />
                 <button>Click</button>
             </form>
 
