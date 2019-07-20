@@ -11,7 +11,7 @@ function Home (match) {
                     onChange={props.emit(evs.chooseFile.choose)} />
                 {props.files[0] ?
                     <li>{props.files[0].name}</li> :
-                    'None'
+                    <li>None</li>
                 }
                         
                     <input type="text" name="example" />
