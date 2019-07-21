@@ -6,9 +6,7 @@ function State () {
         route: struct({}),
         homeRoute: struct({
             hello: observ('world'),
-            files: struct({
-                chosenFile: observ([])
-            })
+            files: struct({})
         })
     })
 

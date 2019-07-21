@@ -1,7 +1,7 @@
 var { h, render } = require('preact')
 var connect = require('@nichoth/preact-connect')
 var Bus = require('@nichoth/events')
-var Effects = require('./effects')
+var Effects = require('./subscribe')
 var View = require('./view')
 var evs = require('./EVENTS')
 var State = require('./state')

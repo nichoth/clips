@@ -1,5 +1,5 @@
 var catchRoutes = require('@nichoth/catch-routes')
-var evs = require('../EVENTS')
+var evs = require('./EVENTS')
 
 function Effects ({ state, view }) {
     catchRoutes(function (parsedUrl) {
@@ -18,12 +18,17 @@ function Effects ({ state, view }) {
             // ev.preventDefault()
             console.log('file', ev.target.files)
             state.homeRoute.files.set(ev.target.files)
+        },
+
+        onDrop: function (ev) {
+            console.log('on drop', ev)
         }
     }
 
     // listen for DOM events
     view.on(evs.hello.world, effects.foo)
     view.on(evs.chooseFile.choose, effects.chooseFile)
+    view.on(evs.drop.drop, effects.onDrop)
 
 
     return effects

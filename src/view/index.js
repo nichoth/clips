@@ -1,4 +1,5 @@
 var { h } = require('preact')
+var evs = require('../EVENTS')
 var router = require('../router')
 var dragDrop = require('drag-drop')
 
@@ -18,7 +19,7 @@ function App (props) {
 
     dragDrop('body', function (file) {
         console.log('drop', arguments)
-        emit('drop', file)
+        emit(evs.drop.drop, file)
     })
 
     return <div>
