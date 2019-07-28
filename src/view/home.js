@@ -1,5 +1,5 @@
 var { h } = require('preact')
-var evs = require('../../EVENTS')
+var evs = require('../EVENTS')
 
 function Home (match) {
     return function HomeView (props) {
@@ -13,8 +13,8 @@ function Home (match) {
                     <li>{props.files[0].name}</li> :
                     <li>None</li>
                 }
-                        
-                    <input type="text" name="example" />
+
+                <input type="text" name="example" />
                 <button>Click</button>
             </form>
 

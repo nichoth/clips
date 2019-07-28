@@ -1,5 +1,5 @@
 var { h } = require('preact')
-var evs = require('../../EVENTS')
+var evs = require('../EVENTS')
 
 function Foo (match) {
     return function foo (props) {

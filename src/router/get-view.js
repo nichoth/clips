@@ -1,6 +1,6 @@
 var Router = require('ruta3')
-var Home = require('../view/routes/home')
-var Foo = require('../view/routes/foo')
+var Home = require('../view/home')
+var Foo = require('../view/foo')
 
 function GetView () {
     var router = Router()
