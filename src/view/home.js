@@ -6,13 +6,16 @@ function Home (match) {
         return <div>
             home route... hello {props.hello}
 
+            {props.files[0] ?
+                <ul>
+                    <li>{props.files[0].name}</li>
+                </ul> :
+                null
+            }
+
             <form onSubmit={props.emit(evs.hello.world)}>
                 <input type="file" name="file"
                     onChange={props.emit(evs.chooseFile.choose)} />
-                {props.files[0] ?
-                    <li>{props.files[0].name}</li> :
-                    <li>None</li>
-                }
 
                 <input type="text" name="example" />
                 <button>Click</button>
