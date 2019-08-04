@@ -8,7 +8,14 @@ function Home (match) {
 
             {props.files[0] ?
                 <ul>
-                    <li>{props.files[0].name}</li>
+                    <li>
+                        <video>
+                            <source src={URL.createObjectURL(props.files[0])} type="video/mp4"></source>
+                        </video>
+                        <div>
+                            {props.files[0].name}
+                        </div>
+                    </li>
                 </ul> :
                 null
             }
