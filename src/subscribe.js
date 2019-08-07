@@ -13,7 +13,6 @@ function Effects ({ state, view }) {
             var example = ev.target.elements.example
             state.homeRoute.hello.set(example.value)
         },
-
         chooseFile: function (ev) {
             // ev.preventDefault()
             console.log('file', ev.target.files)
@@ -27,8 +26,8 @@ function Effects ({ state, view }) {
 
     // listen for DOM events
     view.on(evs.hello.world, effects.foo)
-    view.on(evs.chooseFile.choose, effects.chooseFile)
-    view.on(evs.drop.drop, effects.onDrop)
+    view.on(evs.file.choose, effects.chooseFile)
+    view.on(evs.file.drop, effects.onDrop)
 
 
     return effects
