@@ -19,7 +19,7 @@ function App (props) {
 
     dragDrop('body', function (file) {
         console.log('drop', arguments)
-        emit(evs.drop.drop, file)
+        emit(evs.file.drop, file)
     })
 
     return <div>

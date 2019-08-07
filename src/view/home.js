@@ -9,7 +9,7 @@ function Home (match) {
             {props.files[0] ?
                 <ul>
                     <li>
-                        <video>
+                        <video controls>
                             <source src={URL.createObjectURL(props.files[0])} type="video/mp4"></source>
                         </video>
                         <div>
@@ -22,7 +22,7 @@ function Home (match) {
 
             <form onSubmit={props.emit(evs.hello.world)}>
                 <input type="file" name="file"
-                    onChange={props.emit(evs.chooseFile.choose)} />
+                    onChange={props.emit(evs.file.choose)} />
 
                 <input type="text" name="example" />
                 <button>Click</button>
