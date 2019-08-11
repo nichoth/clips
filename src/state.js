@@ -4,10 +4,11 @@ function State () {
     var state = struct({
         foo: struct({ foo: observ('bar') }),
         route: struct({}),
-        homeRoute: struct({
+        files: struct({
             hello: observ('world'),
-            files: struct({})
-        })
+            seeding: observ([]),
+            downloading: observ([])
+       })
     })
 
     return state

@@ -16,6 +16,7 @@ function App (props) {
     var routeState = props.route.pathname ?
         router.selectState(props, props.route.pathname) :
         null
+    var files = props.files
 
     dragDrop('body', function (file) {
         console.log('drop', arguments)
@@ -24,7 +25,7 @@ function App (props) {
 
     return <div>
         <div className="app-content">
-            <RouteView {...routeState} emit={emit} />
+            <RouteView files={files} {...routeState} emit={emit} />
         </div>
     </div>
 }

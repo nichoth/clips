@@ -3,17 +3,18 @@ var evs = require('../EVENTS')
 
 function Home (match) {
     return function HomeView (props) {
+        console.log('props', props)
         return <div>
             home route... hello {props.hello}
 
-            {props.files[0] ?
+            {props.files.seeding[0] ?
                 <ul>
                     <li>
                         <video controls>
-                            <source src={URL.createObjectURL(props.files[0])} type="video/mp4"></source>
+                            <source src={URL.createObjectURL(props.files.seeding[0])} type="video/mp4"></source>
                         </video>
                         <div>
-                            {props.files[0].name}
+                            {props.files.seeding[0].name}
                         </div>
                     </li>
                 </ul> :
