@@ -8,8 +8,9 @@ function Home (match) {
             home route... hello {props.hello}
 
             {props.files.seeding[0] ?
-                <ul>
-                    <li>
+                ["seeding:",
+                <ul className="source-videos">
+                    <li className="video">
                         <video controls>
                             <source src={URL.createObjectURL(props.files.seeding[0])} type="video/mp4"></source>
                         </video>
@@ -17,7 +18,7 @@ function Home (match) {
                             {props.files.seeding[0].name}
                         </div>
                     </li>
-                </ul> :
+                </ul>] :
                 null
             }
 

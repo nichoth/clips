@@ -23,10 +23,8 @@ function App (props) {
         emit(evs.file.drop, file)
     })
 
-    return <div>
-        <div className="app-content">
-            <RouteView files={files} {...routeState} emit={emit} />
-        </div>
+    return <div className="app-content">
+        <RouteView files={files} hello={props.hello} {...routeState} emit={emit} />
     </div>
 }
 

@@ -3,9 +3,9 @@ var { struct, observ } = require('./lib')
 function State () {
     var state = struct({
         foo: struct({ foo: observ('bar') }),
+        hello: observ('world'),
         route: struct({}),
         files: struct({
-            hello: observ('world'),
             seeding: observ([]),
             downloading: observ([])
        })
