@@ -5,8 +5,6 @@ function Home (match) {
     return function HomeView (props) {
         console.log('props', props)
         return <div>
-            home route... hello {props.hello}
-
             {props.files.seeding[0] ?
                 ["seeding:",
                 <ul className="source-videos">
@@ -22,12 +20,9 @@ function Home (match) {
                 null
             }
 
-            <form onSubmit={props.emit(evs.hello.world)}>
+            <form>
                 <input type="file" name="file"
                     onChange={props.emit(evs.file.choose)} />
-
-                <input type="text" name="example" />
-                <button>Click</button>
             </form>
 
             <div>
