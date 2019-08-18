@@ -24,8 +24,10 @@ function App (props) {
     })
 
     return <div className="app-content">
+        <h1>BEEFDAD.com</h1>
         <RouteView files={files} hello={props.hello} {...routeState} emit={emit} />
     </div>
+    
 }
 
 module.exports = App
