@@ -5,8 +5,15 @@ function Home (match) {
     return function HomeView (props) {
         console.log('props', props)
         return <div>
+            <h1>Beefdad.com</h1>
+
+            <form>
+                <input type="file" name="file"
+                    onChange={props.emit(evs.file.choose)} />
+            </form>
+
+           <div className="seed-videos">sharing:</div>
             {props.files.seeding[0] ?
-                ["seeding:",
                 <ul className="source-videos">
                     <li className="video">
                         <video controls>
@@ -15,15 +22,10 @@ function Home (match) {
                         <div>
                             {props.files.seeding[0].name}
                         </div>
-                    </li>
-                </ul>] :
-                null
+                        </li>
+                </ul> :
+                <div className="source-videos"><em>none</em></div>
             }
-
-            <form>
-                <input type="file" name="file"
-                    onChange={props.emit(evs.file.choose)} />
-            </form>
 
             <div>
                 <pre>
