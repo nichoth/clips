@@ -2,7 +2,7 @@ var catchRoutes = require('@nichoth/catch-routes')
 var evs = require('./EVENTS')
 var Webtorrent = require('webtorrent')
 
-function Effects ({ state, view }) {
+function Effects ({ emit, state, view }) {
     catchRoutes(function (parsedUrl) {
         state.route.set(parsedUrl)
     })
@@ -39,6 +39,14 @@ function Effects ({ state, view }) {
 
    function seed (files, cb) {
         client.seed(files, cb)
+    }
+
+    function download (magnetURI, cb) {
+        client.add(magnetURI, function (torrent) {
+            emmit(evs.download.start, torrent)
+            console.log('download', torrent)
+            cb(null, torrent)
+        })
     }
 
     // listen for DOM events

@@ -7,7 +7,7 @@ var evs = require('./EVENTS')
 var State = require('./state')
 var state = State()
 var bus = Bus({ memo: true })
-var effects = Effects({ state, view: bus })
+var effects = Effects({ emit: bus.emit.bind(bus), state, view: bus })
 var _view = connect({ state, bus, view: View })
 
 render(h(_view), document.getElementById('content'))

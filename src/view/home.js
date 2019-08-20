@@ -25,6 +25,12 @@ function Home (match) {
                 <div className="source-videos"><em>none</em></div>
             }
 
+        <form>
+            <input type="text" name="magnet-uri" />
+            <button type="submit" value="download">
+                download
+            </button>
+        </form>
 
            <div>downloading:</div>
             {props.files.seeding[0] ?
