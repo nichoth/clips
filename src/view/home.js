@@ -25,10 +25,10 @@ function Home (match) {
                 <div className="source-videos"><em>none</em></div>
             }
 
-        <form>
+        <form onSubmit={props.emit(evs.download.start)}>
             <input type="text" name="magnet-uri" />
             <button type="submit" value="download">
-                download
+                Download
             </button>
         </form>
 
