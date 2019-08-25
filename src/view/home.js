@@ -32,9 +32,9 @@ function Home (match) {
             </button>
         </form>
 
-           <div>downloading:</div>
+           <div className='download-videos'>downloading:</div>
             {props.files.seeding[0] ?
-                <ul>
+                <ul className="source-videos">
                     <li className="video">
                         <video controls>
                             <source src={URL.createObjectURL(props.files.seeding[0])} type="video/mp4"></source>
