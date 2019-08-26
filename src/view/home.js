@@ -26,7 +26,7 @@ function Home (match) {
             }
 
         <form onSubmit={props.emit(evs.download.start)}>
-            <input type="text" name="magnet-uri" />
+            <input type="text" name="magnet-uri" placeholder="magnet uri" />
             <button type="submit" value="download">
                 Download
             </button>
