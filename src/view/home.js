@@ -46,14 +46,6 @@ function Home (match) {
                 </ul> :
                 <div className="source-videos"><em>none</em></div>
             }
-
-            <div>
-                <pre>
-                    <code>
-                        {JSON.stringify(props, null, 2)}
-                    </code>
-                </pre>
-            </div>
         </div>
     }
 }
