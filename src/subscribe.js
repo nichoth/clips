@@ -43,10 +43,14 @@ function Effects ({ state, view }) {
 
     function download (magnetURI, cb) {
         client.add(magnetURI, function (torrent) {
+            window.log = function () {
+                console.log('speeed', torrent.downloadSpeed)
+            }
             console.log('download', torrent)
             // @todo update the spped/state periodically
             console.log('speed', torrent.downloadSpeed)
             console.log('path', torrent.path)
+            var i = state.files.downloading().length
             var newState = state.files.downloading().concat(torrent)
             state.files.downloading.set(newState)
             cb(null, torrent)
