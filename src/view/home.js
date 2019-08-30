@@ -41,22 +41,40 @@ function Home (match) {
            <div className='download-videos'>downloading:</div>
             {console.log('downloading', props.files.downloading[0])}
 
+            {console.log(props.files.downloading)}
             {props.files.downloading[0] ?
                 <ul className="source-videos">
-                    {props.files.downloading.map(function (torrent) {
-                        console.log('torrent', torrent)
-                        return <li className="video">
-                            <video controls>
-                                <source src={URL.createObjectURL(props.files.downloading[0].files[5])} type="video/mp4"></source>
-                            </video>
-                            <div>{torrent.name}</div>
-                        </li>
-                    })}
+                    {
+                        props.files.downloading.forEach(function (torrent) {
+                            var file = torrent.files.find(function (file) {
+                                return file.name.endsWith('.mp4')
+                            })
+                            file.appendTo('body')
+                        })
+                    }
+                    {/* {props.files.downloading.map(function (torrent) {
+                        return <Download torrent={torrent} />
+                    })} */}
                 </ul> :
                 <div className="source-videos"><em>none</em></div>
             }
         </div>
     }
+}
+
+function Download ({ torrent }) {
+    // console.log('torrent', torrent)
+    var file = torrent.files.find(function (file) {
+        return file.name.indexOf ('.mp4' > -1)
+    })
+    if (!file) return
+    file.appendTo('body')
+    // return <li className="video">
+    //     <video controls>
+    //         <source src={file.appendTo('body')} type="video/mp4"></source>
+    //     </video>
+    //     <div>{torrent.name}</div>
+    // </li>
 }
 
 module.exports = Home
