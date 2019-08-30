@@ -3,6 +3,7 @@ var path = require('path')
 var evs = require('../EVENTS')
 var extname = require('path').extname
 var concat = require('concat-stream')
+var Preact = require('preact')
 
 function Home (match) {
     return function HomeView (props) {
@@ -41,15 +42,15 @@ function Home (match) {
            <div className='download-videos'>downloading:</div>
             {console.log('downloading', props.files.downloading[0])}
 
-            {console.log(props.files.downloading)}
             {props.files.downloading[0] ?
                 <ul className="source-videos">
                     {
-                        props.files.downloading.forEach(function (torrent) {
-                            var file = torrent.files.find(function (file) {
-                                return file.name.endsWith('.mp4')
-                            })
-                            file.appendTo('body')
+                        props.files.downloading.map(function (torrent) {
+                            if (torrent.file.name.emdsWith('.mp4')) {
+                                return <Download torrent={torrent} />
+                                return null
+                                // torrent.file.appendTo('body')
+                            }
                         })
                     }
                     {/* {props.files.downloading.map(function (torrent) {
@@ -62,20 +63,59 @@ function Home (match) {
     }
 }
 
-function Download ({ torrent }) {
-    // console.log('torrent', torrent)
-    var file = torrent.files.find(function (file) {
-        return file.name.indexOf ('.mp4' > -1)
-    })
-    if (!file) return
-    file.appendTo('body')
+// class Download extends Preact.Component {
+//     constructor(props) {
+//       super(props);
+//       this.myRef = Preact.createRef();
+//     }
+
+//     render() {
+//       return <div ref={this.myRef} />;
+//     }
+//   }
+
+  class Download extends Preact.Component {
+    constructor (props) {
+        super(props)
+        this.myRef = Preact.createRef()
+        this.append = this.append.bind(this)
+    }
+
+    // append () {
+    //     var el = this.myRef.current
+
+    // }
+
+    render () {
+        var el = this.myRef.current
+        var file = torrent.files.find(function (file) {
+            return file.name.indexOf ('.mp4' > -1)
+        })
+        if (!file) return
+        file.appendTo(el)
     // return <li className="video">
     //     <video controls>
     //         <source src={file.appendTo('body')} type="video/mp4"></source>
     //     </video>
     //     <div>{torrent.name}</div>
     // </li>
-}
+    }
+  }
+
+// function Download ({ torrent }) {
+//     // console.log('torrent', torrent)
+//     var file = torrent.files.find(function (file) {
+//         return file.name.indexOf ('.mp4' > -1)
+//     })
+//     if (!file) return
+//     file.appendTo('body')
+//     // return <li className="video">
+//     //     <video controls>
+//     //         <source src={file.appendTo('body')} type="video/mp4"></source>
+//     //     </video>
+//     //     <div>{torrent.name}</div>
+//     // </li>
+// }
 
 module.exports = Home
 
