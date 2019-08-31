@@ -46,12 +46,13 @@ function Home (match) {
                 <ul className="source-videos">
                     {
                         props.files.downloading.map(function (torrent) {
-                            if (torrent.file.name.emdsWith('.mp4')) {
-                                return <Download torrent={torrent} />
-                                return null
+                            return <Download torrent={torrent} />
+                            // if (torrent.file.name.emdsWith('.mp4')) {
+                            //     return <Download torrent={torrent} />
+                            //     return null
                                 // torrent.file.appendTo('body')
-                            }
-                        })
+                            })
+                        }
                     }
                     {/* {props.files.downloading.map(function (torrent) {
                         return <Download torrent={torrent} />
@@ -92,6 +93,7 @@ function Home (match) {
             return file.name.indexOf ('.mp4' > -1)
         })
         if (!file) return
+        // ref={myRef => this.myRef = myRef}
         file.appendTo(el)
     // return <li className="video">
     //     <video controls>
