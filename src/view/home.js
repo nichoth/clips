@@ -51,8 +51,7 @@ function Home (match) {
                             //     return <Download torrent={torrent} />
                             //     return null
                                 // torrent.file.appendTo('body')
-                            })
-                        }
+                        })
                     }
                     {/* {props.files.downloading.map(function (torrent) {
                         return <Download torrent={torrent} />
@@ -82,12 +81,17 @@ function Home (match) {
         this.append = this.append.bind(this)
     }
 
+    append () {
+
+    }
+
     // append () {
     //     var el = this.myRef.current
 
     // }
 
     render () {
+        var { torrent } = this.props
         var el = this.myRef.current
         var file = torrent.files.find(function (file) {
             return file.name.indexOf ('.mp4' > -1)
