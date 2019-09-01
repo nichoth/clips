@@ -81,8 +81,9 @@ function Home (match) {
         this.append = this.append.bind(this)
     }
 
-    append () {
-
+    append (file, el) {
+        file.appendTo(el)
+        console.log('in here', arguments)
     }
 
     // append () {
@@ -94,11 +95,14 @@ function Home (match) {
         var { torrent } = this.props
         var el = this.myRef.current
         var file = torrent.files.find(function (file) {
-            return file.name.indexOf ('.mp4' > -1)
+            return file.name.endsWith ('.mp4')
         })
+        console.log('file', file)
+        console.log('el', el)
         if (!file) return
+        this.append(file, 'body')
+        return <li className="torrent" ref={this.myRef}></li>
         // ref={myRef => this.myRef = myRef}
-        file.appendTo(el)
     // return <li className="video">
     //     <video controls>
     //         <source src={file.appendTo('body')} type="video/mp4"></source>
