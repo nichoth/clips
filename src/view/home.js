@@ -89,7 +89,7 @@ function Home (match) {
         var el = this.myRef
         console.log('el', el)
         // if (!file) return
-        console.log('by id', document.getElementById(torrent.name))
+        // console.log('by id', document.getElementById(torrent.name))
         file.appendTo(el)
     }
 
@@ -106,7 +106,9 @@ function Home (match) {
         var file = torrent.files.find(function (file) {
             return file.name.endsWith ('.mp4')
         })
-        return <li id={torrent.name} className="torrent" ref={c => this.myRef = c} />
+        return <li id={torrent.name} className="torrent" ref={c => this.myRef = c}>
+            {torrent.name}
+        </li>
         // ref={myRef => this.myRef = myRef}
     // return <li className="video">
     //     <video controls>
