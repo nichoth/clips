@@ -82,26 +82,36 @@ function Home (match) {
     }
 
     append (file, el) {
+        console.log('args', arguments)
         file.appendTo(el)
-        console.log('in here', arguments)
     }
 
-    // append () {
-    //     var el = this.myRef.current
-
-    // }
-
-    render () {
+    componentDidMount () {
         var { torrent } = this.props
-        var el = this.myRef.current
         var file = torrent.files.find(function (file) {
             return file.name.endsWith ('.mp4')
         })
-        console.log('file', file)
+        var el = this.myRef
         console.log('el', el)
-        if (!file) return
-        this.append(file, 'body')
-        return <li className="torrent" ref={this.myRef}></li>
+        // if (!file) return
+        console.log('by id', document.getElementById(torrent.name))
+        this.append(file, document.getElementById(torrent.name))
+    }
+
+    componentDidUpdate () {
+        var el = this.myRef
+        console.log('el', el)
+        // if (!file) return
+        console.log('by id', document.getElementById(torrent.name))
+        this.append(file, document.getElementById(torrent.name))
+    }
+
+    render () {
+        var { torrent } = this.props
+        var file = torrent.files.find(function (file) {
+            return file.name.endsWith ('.mp4')
+        })
+        return <li id={torrent.name} className="torrent" ref={c => this.myRef = c} />
         // ref={myRef => this.myRef = myRef}
     // return <li className="video">
     //     <video controls>
