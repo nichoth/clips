@@ -81,12 +81,7 @@ function Home (match) {
         this.append = this.append.bind(this)
     }
 
-    append (file, el) {
-        console.log('args', arguments)
-        file.appendTo(el)
-    }
-
-    componentDidMount () {
+    append () {
         var { torrent } = this.props
         var file = torrent.files.find(function (file) {
             return file.name.endsWith ('.mp4')
@@ -95,15 +90,15 @@ function Home (match) {
         console.log('el', el)
         // if (!file) return
         console.log('by id', document.getElementById(torrent.name))
-        this.append(file, document.getElementById(torrent.name))
+        file.appendTo(el)
+    }
+
+    componentDidMount () {
+        this.append()
     }
 
     componentDidUpdate () {
-        var el = this.myRef
-        console.log('el', el)
-        // if (!file) return
-        console.log('by id', document.getElementById(torrent.name))
-        this.append(file, document.getElementById(torrent.name))
+        this.append()
     }
 
     render () {
