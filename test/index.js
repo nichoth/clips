@@ -10,7 +10,7 @@ function Before () {
     return state
 }
 
-test('example', function (t) {
+test('init state', function (t) {
     t.plan(1)
     var state = Before()
 
@@ -22,6 +22,4 @@ test('example', function (t) {
             downloading: []
         }
     })
-
-    state = null
 })
