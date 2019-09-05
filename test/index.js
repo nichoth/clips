@@ -2,16 +2,16 @@ var test = require('tape')
 var Bus = require('@nichoth/events')
 var Sub = require('../src/subscribe')
 var State = require('../src/state')
+var flatten = require('@nichoth/events/flatten')
 
 function Before () {
-    var bus = Bus()
+    bus = Bus()
     var state =  State()
-    var on = bus.on.bind(bus, 'route')
-    Sub({ view: bus, state, routes: on })
     return state
 }
 
 test('example', function (t) {
+    t.plan(1)
     var state = Before()
 
     t.deepEqual(state(), {
@@ -22,5 +22,6 @@ test('example', function (t) {
             downloading: []
         }
     })
-})
 
+    state = null
+})

@@ -2,7 +2,7 @@ var catchRoutes = require('@nichoth/catch-routes')
 var evs = require('./EVENTS')
 var Webtorrent = require('webtorrent')
 
-function Effects ({ state, view , routes}) {
+function Effects ({ state, view, routes }) {
     var onRoute = routes || catchRoutes
     onRoute(function (parsedUrl) {
         state.route.set(parsedUrl)
@@ -71,7 +71,8 @@ function Effects ({ state, view , routes}) {
         })
     })
 
-    return effects
+    console.log(evs)
+    return { effects, events: evs }
 }
 
 module.exports = Effects
