@@ -71,8 +71,13 @@ function Effects ({ state, view, routes }) {
         })
     })
 
-    console.log(evs)
     return { effects, events: evs }
+
+    // return function close () {
+        // client.destroy(function (err) {
+
+        // })
+    // }
 }
 
 module.exports = Effects
