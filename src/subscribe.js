@@ -71,7 +71,11 @@ function Effects ({ state, view, routes }) {
         })
     })
 
-    return { effects, events: evs }
+    function close (cb) {
+        client.destroy(cb)
+    }
+
+    return { effects, events: evs, close }
 
     // return function close () {
         // client.destroy(function (err) {
