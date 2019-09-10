@@ -25,6 +25,9 @@ function App (props) {
 
     return <div className="app-content">
         <h1>BEEFDAD.com</h1>
+        <div className="buy-account">
+            <a href="buy-account">$$$</a>
+        </div>
         <RouteView files={files} hello={props.hello} {...routeState} emit={emit} />
     </div>
     

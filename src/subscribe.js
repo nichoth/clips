@@ -22,6 +22,8 @@ function Effects ({ state, view, routes }) {
             console.log('file', ev.target.files)
             seed(ev.target.files, function (torrent) {
                 console.log('seeeding', torrent)
+                console.log('magnet', torrent.magnetURI)
+                // @TODO show magnet in UI
             })
             state.files.seeding.set(ev.target.files)
         },

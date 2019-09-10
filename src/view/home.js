@@ -10,7 +10,7 @@ function Home (match) {
         console.log('props', props)
         return <div>
             <form>
-                <input type="fie" name="file"
+                <input type="file" name="file"
                     onChange={props.emit(evs.file.choose)} />
             </form>
 
