@@ -4,7 +4,8 @@ var EVENTS = namespace({
     hello: ['world'],
     foo: ['foo'],
     file: ['choose', 'drop'],
-    download: ['start']
+    download: ['start'],
+    buyAccount: ['submit']
 })
 
 module.exports = EVENTS

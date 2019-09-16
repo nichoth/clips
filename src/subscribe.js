@@ -72,6 +72,10 @@ function Effects ({ state, view, routes }) {
             console.log('here', torrent)
         })
     })
+    view.on(evs.buyAccount.submit, function (ev) {
+        ev.preventDefault()
+        console.log(ev.target.elements.payment.value)
+    })
 
     function close (cb) {
         client.destroy(cb)
