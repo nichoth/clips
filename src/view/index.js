@@ -25,6 +25,10 @@ function App (props) {
 
     return <div className="app-content">
         <h1><a href="/">BEEFDAD.com</a></h1>
+
+        <div className="login-link">
+            <a href="login">Login</a>
+        </div>
         <div className="buy-account">
             <a title="Buy an account" href="buy-account">$$$</a>
         </div>

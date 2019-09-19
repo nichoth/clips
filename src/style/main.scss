@@ -35,13 +35,17 @@ div.source-videos {
     border-bottom: 4px solid teal;
 }
 
-.buy-account {
+.buy-account, .login-link {
     float: right;
     background-color: black;
     padding: 0.5em 1em;
     a {
         color: red;
     }
+}
+
+.buy-account {
+    margin-right: 1em;
 }
 
 .buy-account-form {
