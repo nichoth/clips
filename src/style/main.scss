@@ -16,6 +16,13 @@ ul {
 h1 {
     font-family: 'Lexend Deca', sans-serif;
     display: inline-block;
+    a {
+        color: black;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 div.source-videos {

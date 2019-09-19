@@ -75,6 +75,7 @@ function Effects ({ state, view, routes }) {
     view.on(evs.buyAccount.submit, function (ev) {
         ev.preventDefault()
         console.log(ev.target.elements.payment.value)
+        console.log('state', state())
     })
 
     function close (cb) {
