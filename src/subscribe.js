@@ -78,6 +78,11 @@ function Effects ({ state, view, routes }) {
         console.log('state', state())
     })
 
+    view.on(evs.login.submit, function (ev) {
+        ev.preventDefault()
+        console.log('login', ev.target.username.value)
+    })
+
     function close (cb) {
         client.destroy(cb)
     }

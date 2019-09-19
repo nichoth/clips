@@ -2,6 +2,7 @@ var Router = require('ruta3')
 var Home = require('../view/home')
 var Foo = require('../view/foo')
 var BuyAccount = require('../view/buy-account')
+var Login = require('../view/login')
 
 function GetView () {
     var router = Router()
@@ -9,6 +10,7 @@ function GetView () {
     router.addRoute('/', Home)
     router.addRoute('/foo', Foo)
     router.addRoute('/buy-account', BuyAccount)
+    router.addRoute('/login', Login)
 
     return function getView (pathname) {
         var match = router.match(pathname)
