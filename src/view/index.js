@@ -32,7 +32,11 @@ function App (props) {
         <div className="buy-account">
             <a title="Buy an account" href="buy-account">$$$</a>
         </div>
-        <RouteView files={files} hello={props.hello} {...routeState} emit={emit} />
+
+        <div className="route-content">
+            <RouteView files={files} hello={props.hello} {...routeState}
+                emit={emit} />
+        </div>
     </div>
     
 }
