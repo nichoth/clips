@@ -7,14 +7,11 @@ var Preact = require('preact')
 
 function Home (match) {
     return function HomeView (props) {
-        console.log('props', props)
         return <div>
             <form>
                 <input type="file" name="file"
                     onChange={props.emit(evs.file.choose)} />
             </form>
-
-        {console.log('seed', props.files.seeding[0])}
 
         <div className="seed-videos">sharing:</div>
             {props.files.seeding[0] ?
@@ -40,7 +37,6 @@ function Home (match) {
         </form>
 
            <div className='download-videos'>downloading:</div>
-            {console.log('downloading', props.files.downloading[0])}
 
             {props.files.downloading[0] ?
                 <ul className="source-videos">
@@ -87,9 +83,6 @@ function Home (match) {
             return file.name.endsWith ('.mp4')
         })
         var el = this.myRef
-        console.log('el', el)
-        // if (!file) return
-        // console.log('by id', document.getElementById(torrent.name))
         file.appendTo(el)
     }
 
@@ -109,30 +102,7 @@ function Home (match) {
         return <li id={torrent.name} className="torrent" ref={c => this.myRef = c}>
             {torrent.name}
         </li>
-        // ref={myRef => this.myRef = myRef}
-    // return <li className="video">
-    //     <video controls>
-    //         <source src={file.appendTo('body')} type="video/mp4"></source>
-    //     </video>
-    //     <div>{torrent.name}</div>
-    // </li>
     }
   }
 
-// function Download ({ torrent }) {
-//     // console.log('torrent', torrent)
-//     var file = torrent.files.find(function (file) {
-//         return file.name.indexOf ('.mp4' > -1)
-//     })
-//     if (!file) return
-//     file.appendTo('body')
-//     // return <li className="video">
-//     //     <video controls>
-//     //         <source src={file.appendTo('body')} type="video/mp4"></source>
-//     //     </video>
-//     //     <div>{torrent.name}</div>
-//     // </li>
-// }
-
 module.exports = Home
-

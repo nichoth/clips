@@ -44,6 +44,26 @@ div.source-videos {
     }
 }
 
+.login-section {
+    margin-bottom: 1em;
+     label {
+         display: block;
+         color: white;
+     }
+
+     input {
+         border: 0;
+         height: 2em;
+         font-family: 'Lexend Deca', sans-serif;
+     }
+}
+
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .buy-account {
     margin-right: 1em;
 }
