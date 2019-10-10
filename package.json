@@ -23,7 +23,7 @@
     "postversion": "git push --no-verify && git push --tags --no-verify",
     "lint": "eslint . --config .eslintrc",
     "test": "tape test/{**/*,*}.js",
-    "test-browser": "browserify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html",
+    "test-browser": "browserify -t babelify test-browser/index.js | htmlify test-browser/index.html | tape-run --input html",
     "test-cypress": "start-server-and-test start http://localhost:9966 cy:run",
     "cy:run": "cypress run"
   },

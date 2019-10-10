@@ -43,32 +43,14 @@ function Home (match) {
                     {
                         props.files.downloading.map(function (torrent) {
                             return <Download torrent={torrent} />
-                            // if (torrent.file.name.emdsWith('.mp4')) {
-                            //     return <Download torrent={torrent} />
-                            //     return null
-                                // torrent.file.appendTo('body')
                         })
                     }
-                    {/* {props.files.downloading.map(function (torrent) {
-                        return <Download torrent={torrent} />
-                    })} */}
                 </ul> :
                 <div className="source-videos"><em>none</em></div>
             }
         </div>
     }
 }
-
-// class Download extends Preact.Component {
-//     constructor(props) {
-//       super(props);
-//       this.myRef = Preact.createRef();
-//     }
-
-//     render() {
-//       return <div ref={this.myRef} />;
-//     }
-//   }
 
   class Download extends Preact.Component {
     constructor (props) {

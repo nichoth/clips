@@ -10,14 +10,21 @@ var bus = Bus({ memo: true })
 var effects = Effects({ state, view: bus })
 var _view = connect({ state, bus, view: View })
 
-render(h(_view), document.getElementById('content'))
+function start () {
+    render(h(_view), document.getElementById('content'))
 
-if (process.env.NODE_ENV === 'development') {
-    window.app = {
-        state,
-        effects,
-        view: bus,
-        evs
+    if (process.env.NODE_ENV === 'development') {
+        window.app = {
+            state,
+            effects,
+            view: bus,
+            evs
+        }
     }
 }
 
+if (require.main === module) {
+    start()
+}
+
+module.exports = start
