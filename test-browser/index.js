@@ -6,13 +6,15 @@ var View = require('../src/view')
 var State = require('../src/state')
 var state = State()
 var Effects = require('../src/subscribe')
-
+var App = require('../src')
 
 test('example', function (t) {
+    // var bus = Bus({ memo: true })
+    // connect({ state, bus, view: View })
+    // Effects({ state, view: bus })
+
+    // t.plan(1)
+
     t.pass('wooooooo')
     t.end()
-
-    var bus = Bus({ memo: true })
-    connect({ state, bus, view: View })
-    Effects({ state, view: bus })
 })

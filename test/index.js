@@ -3,7 +3,7 @@ var Bus = require('@nichoth/events')
 var Sub = require('../src/subscribe')
 var State = require('../src/state')
 
-var closeClient
+// var closeClient
 function Before () {
     bus = Bus()
     var state =  State()
@@ -11,12 +11,12 @@ function Before () {
         state.route.set(path)
     } })
     closeClient = close
-    return state
+    return { state, bus, close }
 }
 
 test('init state', function (t) {
     t.plan(1)
-    var state = Before()
+    var { state, close } = Before()
 
     t.deepEqual(state(), {
         foo: { foo: 'bar' },
@@ -27,5 +27,17 @@ test('init state', function (t) {
         }
     }, 'should have init state')
 
-    closeClient()
+    close()
+})
+
+test('transfer', function (t) {
+    t.plan(1)
+    var { bus, state, close } = Before()
+    var client2 = Before()
+    var close2 = client2.close
+    client2.on('torrent', function (torrent) {
+        console.log('torrent', torrent)
+    })
+    close()
+    close2()
 })

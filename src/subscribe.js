@@ -17,20 +17,23 @@ function Effects ({ state, view, routes }) {
             var example = ev.target.elements.example
             state.files.hello.set(example.value)
         },
+
         chooseFile: function (ev) {
             // ev.preventDefault()
             console.log('file', ev.target.files)
-            seed(ev.target.files, function (torrent) {
+            client.seed(ev.target.files, function (torrent) {
                 console.log('seeeding', torrent)
                 console.log('magnet', torrent.magnetURI)
+                state.files.seeding.set(
+                    state.files.seeding().concat(ev.target.files)
+                )
                 // @TODO show magnet in UI
             })
-            state.files.seeding.set(ev.target.files)
         },
 
         onDrop: function (ev) {
             console.log('on drop', ev)
-            seed(ev.target.files, function (torrent) {
+            client.seed(ev.target.files, function (torrent) {
                 console.log('seeeding', torrent)
             })
             state.files.seeding.set(ev.target.files)
@@ -40,18 +43,11 @@ function Effects ({ state, view, routes }) {
         console.log('error', err)
     })
 
-   function seed (files, cb) {
-        client.seed(files, cb)
-    }
-
     function download (magnetURI, cb) {
         client.add(magnetURI, function (torrent) {
-            window.log = function () {
-                console.log('speeed', torrent.downloadSpeed)
-            }
+            console.log('speed', torrent.downloadSpeed)
             console.log('download', torrent)
             // @todo update the spped/state periodically
-            console.log('speed', torrent.downloadSpeed)
             console.log('path', torrent.path)
             var i = state.files.downloading().length
             var newState = state.files.downloading().concat(torrent)
