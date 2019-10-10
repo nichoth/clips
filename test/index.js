@@ -2,7 +2,6 @@ var test = require('tape')
 var Bus = require('@nichoth/events')
 var Sub = require('../src/subscribe')
 var State = require('../src/state')
-// var flatten = require('@nichoth/events/flatten')
 
 var closeClient
 function Before () {
@@ -26,7 +25,7 @@ test('init state', function (t) {
             seeding: [],
             downloading: []
         }
-    })
+    }, 'should have init state')
 
     closeClient()
 })
