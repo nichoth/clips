@@ -32,12 +32,10 @@ test('init state', function (t) {
 
 test('transfer', function (t) {
     t.plan(1)
-    var { bus, state, close } = Before()
+    var { bus, state } = Before()
     var client2 = Before()
-    var close2 = client2.close
     client2.on('torrent', function (torrent) {
         console.log('torrent', torrent)
     })
-    close()
-    close2()
+    client2.close()
 })
