@@ -33,7 +33,7 @@ test('init state', function (t) {
 
 test('transfer', function (t) {
     t.plan(1)
-    var path = __dirname + '/the-terrys.mp4'
+    var path = __dirname + '/SampleVideo_1280x720_2mb.mp4'
     var client = Before()              // .effects
     var client2 = Before() //.effects
     client.effects.seed(path, function onSeed (torrent) {
