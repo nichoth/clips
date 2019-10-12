@@ -34,8 +34,8 @@ test('init state', function (t) {
 test('transfer', function (t) {
     t.plan(1)
     var path = __dirname + '/SampleVideo_1280x720_2mb.mp4'
-    var client = Before()              // .effects
-    var client2 = Before() //.effects
+    var client = Before()             
+    var client2 = Before() 
     client.effects.seed(path, function onSeed (torrent) {
         console.log('on seed')
         var parsed = parseTorrent(torrent)

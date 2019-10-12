@@ -13,7 +13,7 @@ function Home (match) {
                     onChange={props.emit(evs.file.choose)} />
             </form>
 
-        <div className="seed-videos">sharing:</div>
+            <div className="seed-videos">sharing:</div>
             {props.files.seeding[0] ?
                 <ul className="source-videos">
                     <li className="video">
@@ -29,12 +29,12 @@ function Home (match) {
 
             }
 
-        <form onSubmit={props.emit(evs.download.start)}>
-            <input type="text" name="magnet-uri" placeholder="magnet uri" />
-            <button type="submit" value="download">
-                Download
-            </button>
-        </form>
+            <form onSubmit={props.emit(evs.download.start)}>
+                <input type="text" name="magnet-uri" placeholder="magnet uri" />
+                <button type="submit" value="download">
+                    Download
+                </button>
+            </form>
 
            <div className='download-videos'>downloading:</div>
 
