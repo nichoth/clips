@@ -3,6 +3,7 @@ var Home = require('../view/home')
 var Foo = require('../view/foo')
 var BuyAccount = require('../view/buy-account')
 var Login = require('../view/login')
+var Register = require('../view/register')
 
 function GetView () {
     var router = Router()
@@ -11,6 +12,7 @@ function GetView () {
     router.addRoute('/foo', Foo)
     router.addRoute('/buy-account', BuyAccount)
     router.addRoute('/login', Login)
+    router.addRoute('/register', Register)
 
     return function getView (pathname) {
         var match = router.match(pathname)

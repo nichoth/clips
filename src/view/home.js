@@ -1,8 +1,5 @@
 var { h } = require('preact')
-// var path = require('path')
 var evs = require('../EVENTS')
-// var extname = require('path').extname
-// var concat = require('concat-stream')
 var Preact = require('preact')
 
 function Home (match) {

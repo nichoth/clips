@@ -67,7 +67,9 @@ function Effects ({ state, view, routes }) {
     view.on(evs.file.drop, effects.onDrop)
     view.on(evs.download.start, function (ev) {
         ev.preventDefault()
+        console.log('download', ev.target)
         download(link, function (err, torrent) {
+            if (err) throw err
             console.log('here', torrent)
         })
     })

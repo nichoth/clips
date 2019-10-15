@@ -50,6 +50,7 @@
     "babel-eslint": "^8.2.3",
     "babel-plugin-module-resolver": "^3.1.1",
     "babelify": "^10.0.0",
+    "beefdad-server": "0.0.0",
     "browserify": "^16.2.3",
     "budo": "^11.5.0",
     "bundle-collapser": "^1.3.0",

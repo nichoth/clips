@@ -87,3 +87,18 @@ button {
 li.torrent, video {
     width: 30vw;
 }
+
+.login-page {
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.register {
+    text-align: right;
+    width: 50%;
+}
