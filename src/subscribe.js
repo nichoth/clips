@@ -46,15 +46,15 @@ function Effects ({ state, view, routes }) {
     })
 
     function download (magnetURI, cb) {
-        var tor = client.add(magnetURI, function (torrent) {
+        client.add(magnetURI, function (torrent) {
             // console.log('speed', torrent.downloadSpeed)
             // @todo update the spped/state periodically
             // console.log('path', torrent.path)
             // var i = state.files.downloading().length
+            var newState = state.files.downloading().concat(torrent)
+            state.files.downloading.set(newState)
+            cb(null, torrent)
         })
-        var newState = state.files.downloading().concat(tor)
-        state.files.downloading.set(newState)
-        cb(null, tor)
     }
     
     var link = 'magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2F&xs=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel.torrent'
@@ -67,10 +67,8 @@ function Effects ({ state, view, routes }) {
     view.on(evs.file.drop, effects.onDrop)
     view.on(evs.download.start, function (ev) {
         ev.preventDefault()
-        console.log('download', ev.target)
         download(link, function (err, torrent) {
             if (err) throw err
-            console.log('here', torrent)
         })
     })
     view.on(evs.buyAccount.submit, function (ev) {
@@ -81,7 +79,15 @@ function Effects ({ state, view, routes }) {
 
     view.on(evs.login.submit, function (ev) {
         ev.preventDefault()
-        console.log('login', ev.target.username.value)
+        if (process.env.NODE_ENV === 'development') {
+            // set state login ok
+        }
+        // set state with resolving so you can show a spinner
+        // call api
+        process.nextTick(function () {
+            // set state with login stuff
+            console.log('login', ev.target.username.value)
+        })
     })
 
     function close (cb) {

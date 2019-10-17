@@ -23,7 +23,6 @@ function Home (match) {
                         </li>
                 </ul> :
                 <div className="source-videos"><em>none</em></div>
-
             }
 
             <form onSubmit={props.emit(evs.download.start)}>
@@ -57,12 +56,14 @@ function Home (match) {
     }
 
     append () {
+        console.log('props', this.props)
         var { torrent } = this.props
         var file = torrent.files.find(function (file) {
             return file.name.endsWith ('.mp4')
         })
+        console.log('files', torrent.files)
         var el = this.myRef
-        file.appendTo(el)
+        if (file) file.appendTo(el)
     }
 
     componentDidMount () {
@@ -75,9 +76,9 @@ function Home (match) {
 
     render () {
         var { torrent } = this.props
-        var file = torrent.files.find(function (file) {
-            return file.name.endsWith ('.mp4')
-        })
+        // var file = torrent.files.find(function (file) {
+        //     return file.name.endsWith ('.mp4')
+        // })
         return <li id={torrent.name} className="torrent" ref={c => this.myRef = c}>
             {torrent.name}
         </li>

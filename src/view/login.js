@@ -18,7 +18,7 @@ function Login (match) {
                 </div>
 
                 <div className="buttons">
-                    <button tyoe="submit">submit</button>
+                    <button tyoe="submit">login</button>
                 </div>
             </form>
 
