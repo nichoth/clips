@@ -41,6 +41,8 @@ test('transfer', function (t) {
         var parsed = parseTorrent(torrent)
         parsed.announce = 'http://tracker.local:80'                  
         client2.effects.download(parsed, function ondownload (err, torrent2) {
+            if (err) throw err
+            console.log('download')
             t.equal(parsed.infoHash, torrent2.infoHash)
             client.close()
             client2.close()

@@ -46,15 +46,18 @@ function Effects ({ state, view, routes }) {
     })
 
     function download (magnetURI, cb) {
-        client.add(magnetURI, function (torrent) {
+        console.log('down')
+        var tor = client.add(magnetURI, function (torrent) {
             // console.log('speed', torrent.downloadSpeed)
             // @todo update the spped/state periodically
             // console.log('path', torrent.path)
             // var i = state.files.downloading().length
+            console.log('here', torrent)
             var newState = state.files.downloading().concat(torrent)
             state.files.downloading.set(newState)
-            cb(null, torrent)
+            // cb(null, torrent)
         })
+        cb(null, tor)
     }
     
     var link = 'magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2F&xs=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel.torrent'
