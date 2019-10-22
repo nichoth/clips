@@ -9,13 +9,14 @@ function Home (match) {
                 <input type="file" name="file"
                     onChange={props.emit(evs.file.choose)} />
             </form>
-
+            {console.log(props.files.seeding[0] ? props.files.seeding[0][0] : null)}
             <div className="seed-videos">sharing:</div>
+
             {props.files.seeding[0] ?
                 <ul className="source-videos">
                     <li className="video">
                         <video controls>
-                            <source src={URL.createObjectURL(props.files.seeding[0])} type="video/mp4"></source>
+                            <source src={URL.createObjectURL(props.files.seeding[0][0])} type="video/mp4"></source>
                         </video>
                         <div>
                             {props.files.seeding[0].name}
