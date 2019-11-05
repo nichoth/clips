@@ -5,7 +5,7 @@ function State () {
         foo: struct({ foo: observ('bar') }),
         route: struct({}),
         files: struct({
-            seeding: observ([]),
+            seeding: observ(null),
             downloading: observ([])
        })
     })
