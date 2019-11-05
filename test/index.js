@@ -6,7 +6,7 @@ var parseTorrent = require('parse-torrent')
 
 // var closeClient
 function Before () {
-    bus = Bus()
+    var bus = Bus()
     var state =  State()
     var { close, effects } = Sub({ state, view: bus, routes: function (path) {
         state.route.set(path)
@@ -23,7 +23,7 @@ test('init state', function (t) {
         foo: { foo: 'bar' },
         route: {},
         files: {
-            seeding: [],
+            seeding: null,
             downloading: []
         }
     }, 'should have init state')
@@ -34,12 +34,12 @@ test('init state', function (t) {
 test('transfer', function (t) {
     t.plan(1)
     var path = __dirname + '/SampleVideo_1280x720_2mb.mp4'
-    var client = Before()             
-    var client2 = Before() 
+    var client = Before()
+    var client2 = Before()
     client.effects.seed(path, function onSeed (torrent) {
         console.log('on seed')
         var parsed = parseTorrent(torrent)
-        parsed.announce = 'http://tracker.local:80'                  
+        parsed.announce = 'http://tracker.local:80'
         client2.effects.download(parsed, function ondownload (err, torrent2) {
             if (err) throw err
             console.log('download')
