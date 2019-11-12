@@ -33,19 +33,22 @@ test('init state', function (t) {
 
 test('transfer', function (t) {
     t.plan(1)
-    var path = __dirname + '/SampleVideo_1280x720_2mb.mp4'
+    // var path = __dirname + '/SampleVideo_1280x720_2mb.mp4'
+    var path = __dirname + '/sintel.torrent'
     var client = Before()
     var client2 = Before()
     client.effects.seed(path, function onSeed (torrent) {
         console.log('on seed')
         var parsed = parseTorrent(torrent)
-        parsed.announce = 'http://tracker.local:80'
-        client2.effects.download(parsed, function ondownload (err, torrent2) {
+        // parsed.announce = 'http://tracker.local:80'
+        var torrent2 = client2.effects.download(parsed)
+        ondownload(null, torrent2)
+        function ondownload (err, torrent2) {
             if (err) throw err
             console.log('download')
             t.equal(parsed.infoHash, torrent2.infoHash)
             client.close()
             client2.close()
-        })
+        }
     })
 })
