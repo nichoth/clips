@@ -9,10 +9,10 @@ function Home (match) {
                 <input type="file" name="file"
                     onChange={props.emit(evs.file.choose)} />
             </form>
-            {console.log(props.files.seeding[0] ? props.files.seeding[0][0] : null)}
+            {console.log(props.files.seeding ? props.files.seeding[0][0] : null)}
             <div className="seed-videos">sharing:</div>
 
-            {props.files.seeding[0] ?
+            {props.files.seeding && props.files.seeding[0] ?
                 <ul className="source-videos">
                     <li className="video">
                         <video controls>
