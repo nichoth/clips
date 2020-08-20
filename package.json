@@ -34,7 +34,7 @@
     "@nichoth/events": "^1.1.1",
     "@nichoth/observ": "^0.9.6",
     "@nichoth/preact-connect": "^1.0.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "concat-stream": "^2.0.0",
     "drag-drop": "^4.2.0",
     "preact": "^8.5.2",
